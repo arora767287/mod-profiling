@@ -18,7 +18,7 @@ from ydata_profiling.report.structure.variables.render_categorical import (
     render_categorical_unicode,
 )
 from ydata_profiling.report.structure.variables.render_common import render_common
-from ydata_profiling.visualisation.plot import plot_word_cloud
+#from ydata_profiling.visualisation.plot import plot_word_cloud
 
 
 def render_text(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
@@ -76,13 +76,13 @@ def render_text(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
     )
     top_items.append(table)
 
-    if words and "word_counts" in summary:
-        mini_wordcloud = Image(
-            plot_word_cloud(config, summary["word_counts"]),
-            image_format=config.plot.image_format,
-            alt="Mini wordcloud",
-        )
-        top_items.append(mini_wordcloud)
+    #if words and "word_counts" in summary:
+    #    mini_wordcloud = Image(
+    #        plot_word_cloud(config, summary["word_counts"]),
+    #        image_format=config.plot.image_format,
+    #        alt="Mini wordcloud",
+    #    )
+    #    top_items.append(mini_wordcloud)
     template_variables["top"] = Container(top_items, sequence_type="grid")
 
     # ============================================================================================
@@ -157,11 +157,11 @@ def render_text(config: Settings, summary: Dict[str, Any]) -> Dict[str, Any]:
             redact=config.vars.text.redact,
         )
 
-        image = Image(
-            plot_word_cloud(config, summary["word_counts"]),
-            image_format=config.plot.image_format,
-            alt="Wordcloud",
-        )
+        #image = Image(
+        #    plot_word_cloud(config, summary["word_counts"]),
+        #    image_format=config.plot.image_format,
+        #    alt="Wordcloud",
+        #)
 
         bottom_items.append(
             Container(
